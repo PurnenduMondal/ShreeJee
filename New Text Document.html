@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Service</title>
+    <style>
+        .slider {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .slide {
+            display: inline-block;
+            transition: transform 1s;
+        }
+        .highlight {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider" id="slider">
+        <div class="slide">We provide catering for <span class="highlight">Weddings...</span></div>
+        <div class="slide">We provide catering for <span class="highlight">Corporate Events...</span></div>
+        <div class="slide">We provide catering for <span class="highlight">Birthday Parties...</span></div>
+        <div class="slide">We provide catering for <span class="highlight">Anniversaries...</span></div>
+        <div class="slide">We provide catering for <span class="highlight">Family Gatherings...</span></div>
+        <div class="slide">We provide catering for <span class="highlight">All Occasions!</span></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const slides = slider.getElementsByClassName('slide');
+        let index = 0;
+
+        function slideText() {
+            slides[index].style.transform = 'translateX(-100%)';
+            index = (index + 1) % slides.length;
+            slides[index].style.transform = 'translateX(0)';
+        }
+
+        setInterval(slideText, 3000); // Change text every 3 seconds
+    </script>
+</body>
+</html>

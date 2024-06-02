@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Service</title>
+    <style>
+        .fade-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            display: inline-block;
+            transition: opacity 1.5s;
+        }
+        .highlight {
+            color: #007BFF;
+        }
+        .hidden {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="fade-text">
+        We provide catering for <span class="highlight" id="changing-text">Weddings...</span>
+    </div>
+</body>
+<script>
+    const texts = ["Weddings...", "Corporate Events...", "Birthday Parties...", "Anniversaries...", "Family Gatherings...", "All Occasions!"];
+    let index = 0;
+    const changingText = document.getElementById("changing-text");
+
+    function fadeText() {
+        changingText.classList.add('hidden');
+        setTimeout(() => {
+            changingText.textContent = texts[index];
+            index = (index + 1) % texts.length;
+            changingText.classList.remove('hidden');
+        }, 1500); // This should match the transition duration in CSS
+    }
+
+    setInterval(fadeText, 4000); // Change text every 4 seconds
+</script>
+</html>
